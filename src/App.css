@@ -3,6 +3,8 @@
   max-width: 45rem;
   margin-left: auto;
   margin-right: auto;
+  padding: 32px;
+  position: relative;
 }
 
 p {
@@ -70,8 +72,8 @@ input:focus {
   width: 80%;
   text-align: center;
   color: #02253E;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10%;
+  margin-right: 10%;
   z-index: 4;
 }
 
@@ -130,10 +132,20 @@ input:focus {
   margin: 16px;
   background-color: #efefef;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .albumForm {
   position: absolute;
+  padding: 16px;
+  height: "calc(100% - 32px)";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .albumInfo {
@@ -187,6 +199,117 @@ input:focus {
   box-shadow: 0px 4px 16px 0px rgba(2, 37, 62, 0.15);
   margin-top: 11px;
   margin-bottom: -1px;
+}
+
+.albumGrid {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.albumGridRow {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  width: 696px;
+}
+
+.displayHolder {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.controlsOverlay {
+  position: absolute;
+  right: 0;
+  width: 128px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    width: 100%;
+    margin: 8px;
+    padding: 0;
+  }
+
+  .albumGridRow {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .textTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .inputTitle {
+    margin-top: 32px;
+    font-size: 32px;
+    line-height: 42px;
+    font-weight: 600;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .inputTitle::placeholder {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .albumHolder {
+    width: 300px;
+    height: 300px;
+    margin: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .textTitle {
+    margin-top: 32px;
+  }
+
+  .textName {
+    margin-top: 2px;
+  }
+
+  .coverImg {
+    width: 300px;
+    height: 300px;
+    transition: 0.2s all;
+  }
+
+  .coverImg:hover {
+    width: 308px;
+    height: 308px;
+    margin: -4px;
+    box-shadow: 0px 4px 16px 0px rgba(2, 37, 62, 0.15);
+    cursor: pointer;
+  }
+
+  .albumGrid {
+    margin-bottom: 32px;
+  }
+
+  .controlsOverlay {
+    top: 0;
+    width: 100%;
+    height: -webkit-fill-available;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: fixed;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */

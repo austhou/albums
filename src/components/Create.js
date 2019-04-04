@@ -15,7 +15,7 @@ class Create extends Component {
     }
     returnRow(row) {
         return (
-            <div style={{display: 'flex', flexDirection: 'row', marginLeft: 'auto', marginRight: 'auto', width: 696}} >
+            <div className='albumGridRow' >
                 {this.state.albumX.map(n => {
                     var id = (row-1)*3 + n-1;
                     return <Album key={id} id={id}/>
@@ -26,7 +26,7 @@ class Create extends Component {
     }
     returnGrid() {
         return (
-            <div style={{display: 'flex', flexDirection: 'column', marginLeft: 'auto', marginRight: 'auto'}} >
+            <div className='albumGrid' >
                 {this.state.albumY.map(n => {
                     return <div key={'row'+n}>{this.returnRow(n)}</div>
                 })}
@@ -36,7 +36,7 @@ class Create extends Component {
 
     render() {
         return (
-            <div style={{position: 'absolute'}}>
+            <div className='displayHolder'>
                 <Meta />
                 {this.returnGrid()}
             </div>

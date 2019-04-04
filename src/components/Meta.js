@@ -19,7 +19,6 @@ class Meta extends Component {
                     placeholder="Title"
                     value={this.props.title}
                     onChange={this.handleChangeTitle.bind(this)}
-                    style={{ marginLeft: '10%', marginRight: '10%'}}
                 />
                 <div style={{width: '50%', marginLeft: 'auto', marginRight: 'auto', marginBottom: 32}}>
                     <input type="text" className="inputName" placeholder="Your name" value={this.props.name} onChange={this.handleChangeName.bind(this)}/>

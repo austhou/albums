@@ -35,7 +35,7 @@ class App extends Component {
     render() {
         return (
             <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
-                <div className="App" style={{padding: 32, position: 'relative'}}>
+                <div className="App">
                     <Router>
                         <Route
                             path="/list/:listid"
@@ -47,7 +47,7 @@ class App extends Component {
                             component={Create}
                         />
                     </Router>
-                    <div style={{position: 'absolute', right: 0, width: '128px', height: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', zIndex: 0}}>
+                    <div className='controlsOverlay'>
                         <Controls />
                     </div>
                 </div>

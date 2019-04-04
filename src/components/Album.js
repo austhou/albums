@@ -38,7 +38,7 @@ class Album extends Component {
     }
     returnButton() {
         if (this.props.albumInfo.inputText.length > 4) {
-            return <div className="submitAlbum" onClick={this.requestURL.bind(this)}>Go</div>
+            return <div className="submitAlbum" onClick={this.requestURL.bind(this)}>Submit</div>
         }
         else {
             return <div className="submitDisable" >Enter URL</div>
@@ -51,7 +51,7 @@ class Album extends Component {
         else {
             return (
                 
-                <div className="albumForm" style={{padding: 16, height: 'calc(100% - 32px)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
+                <div className="albumForm" >
                     <input 
                         className="inputBox" 
                         style={{width: 'calc(100% - 18px)'}}
@@ -75,7 +75,7 @@ class Album extends Component {
     }
     render() {
         return (
-            <div className="albumHolder" style={{width: 200, height: 200, margin: 16, backgroundColor: '#efefef'}}>
+            <div className="albumHolder" >
                 {this.returnCard()}
             </div>
         );
