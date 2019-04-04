@@ -96,6 +96,17 @@ input:focus {
     margin-right: auto;
 }
 
+.textSplash {
+    font-size: 64px;
+    line-height: 84px;
+    font-weight: 600;
+    width: 80%;
+    text-align: center;
+    color: $color-black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .inputName {
     background-color: transparent;
     border: 0px solid transparent;
@@ -274,6 +285,8 @@ input:focus {
         margin: 16px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 32px;
+        z-index: 6;
     }
     .albumForm {
 
@@ -288,6 +301,7 @@ input:focus {
         width: 300px;
         height: 300px;
         transition: 0.2s all;
+        z-index: 6;
     }
     
     .coverImg:hover {

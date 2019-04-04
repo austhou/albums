@@ -72,7 +72,7 @@ export const getListData = (id) => {
 
         docRef.get().then(function(doc) {
             if (doc.exists) {
-                console.log("Document data:", doc.data());
+                //console.log("Document data:", doc.data());
                 dispatch({ type: 'set_display_data', payload: {...doc.data()} });
             } else {
                 // doc.data() will be undefined in this case

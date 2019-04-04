@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
     const albums = state.albums;
     const json = state.json;
     const link = state.link;
-    console.log(link)
     return { title, name, albums, json, link };
 }
 

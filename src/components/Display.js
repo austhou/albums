@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App.css';
 import * as actions from '../actions';
-import Album from './Album';
-import Meta from './Meta';
 
 class Display extends Component {
     constructor() {
@@ -14,7 +12,6 @@ class Display extends Component {
         }
     }
     componentWillMount() {
-        console.log(this.props.listid)
         this.props.getListData(this.props.listid);
     }
     openInNewTab(href) {
@@ -71,7 +68,6 @@ class Display extends Component {
 
 const mapStateToProps = (state) => {
     const displayData = state.displayData;
-    console.log(displayData);
     return { data: displayData.data };
 }
 
