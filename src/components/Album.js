@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import '../App.css';
+import * as actions from '../actions';
 
 class Album extends Component {
     constructor() {
@@ -9,32 +11,33 @@ class Album extends Component {
             inputText: '',
             info: {},
         }
-    }
-    
+    }    
     requestListener() { 
         console.log(this.responseText);
     }
     handleChange(event) {
-        this.setState({inputText: event.target.value});
+        this.props.updateAlbumText(this.props.id, event.target.value);
+        //this.setState({inputText: event.target.value});
     }
     requestURL() {
-        var url = `https://embed.spotify.com/oembed/?url=${this.state.inputText}`;
+        var url = `https://embed.spotify.com/oembed/?url=${this.props.albumInfo.inputText}`;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
             fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
             .then(response => response.json())
             .then(contents => {
                 console.log(contents)
                 if (contents.status === 400) {
-                    this.setState({ info: {}, link: null, inputText: 'Check URL' });
+                    this.props.updateAlbumText(this.props.id, 'Check URL');
                 }
                 else {
-                    this.setState({ info: contents, link: this.state.inputText });
+                    this.props.updateAlbumInfo(this.props.id, contents);
+                    //this.setState({ info: contents, link: this.state.inputText });
                 }
             })
             .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
     }
     returnButton() {
-        if (this.state.inputText.length > 4) {
+        if (this.props.albumInfo.inputText.length > 4) {
             return <div className="submitAlbum" onClick={this.requestURL.bind(this)}>Go</div>
         }
         else {
@@ -42,8 +45,8 @@ class Album extends Component {
         }
     }
     returnCard() {
-        if (this.state.link) {
-            return <div style={{position: 'absolute'}}><img onClick={this.openInNewTab.bind(this, this.state.link)} className="coverImg" src={this.state.info.thumbnail_url} /></div>
+        if (this.props.albumInfo.info.title) {
+            return <div style={{position: 'absolute'}}><img onClick={this.openInNewTab.bind(this, this.props.albumInfo.inputText)} className="coverImg" src={this.props.albumInfo.info.thumbnail_url} /></div>
         }
         else {
             return (
@@ -53,7 +56,7 @@ class Album extends Component {
                         className="inputBox" 
                         style={{width: 'calc(100% - 18px)'}}
                         type="text" 
-                        value={this.state.inputText} 
+                        value={this.props.albumInfo.inputText} 
                         onChange={this.handleChange.bind(this)} 
                         placeholder="Spotify URL"
                     />
@@ -62,15 +65,6 @@ class Album extends Component {
                 </div>
                 
             )
-        }
-    }
-    returnInfo() {
-        if (this.state.link) {
-            return <div className="albumInfo">
-                    <a href={this.state.link}>
-                        <p className="albumTitle">{this.state.info && this.state.info.title}</p>
-                    </a>
-                </div>
         }
     }
     openInNewTab(href) {
@@ -83,11 +77,15 @@ class Album extends Component {
         return (
             <div className="albumHolder" style={{width: 200, height: 200, margin: 16, backgroundColor: '#efefef'}}>
                 {this.returnCard()}
-                {//this.returnInfo()
-                }
             </div>
         );
     }
 }
 
-export default Album;
+
+const mapStateToProps = (state, ownProps) => {
+    const albumInfo = {...state.albums[ownProps.id]};
+    return { albumInfo };
+}
+
+export default connect(mapStateToProps, actions)(Album);

@@ -63,9 +63,12 @@ input:focus {
   font-size: 42px;
   line-height: 64px;
   font-weight: 600;
-  width: 100%;
+  width: 80%;
   text-align: center;
   color: #02253E;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 4;
 }
 
 .inputTitle::placeholder {
@@ -84,6 +87,8 @@ input:focus {
   width: 100%;
   text-align: center;
   color: #02253E;
+  align-self: center;
+  z-index: 4;
 }
 
 .inputName::placeholder {
@@ -130,6 +135,32 @@ input:focus {
   margin: -4px;
   box-shadow: 0px 4px 16px 0px rgba(2, 37, 62, 0.15);
   cursor: pointer;
+}
+
+.shareButton {
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 20px;
+  color: #F3F5F7;
+  background-color: #229EC5;
+  cursor: pointer;
+  z-index: 5;
+  margin-top: 12px;
+  transition: 0.2s all;
+  padding: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.shareButton:hover {
+  box-shadow: 0px 4px 16px 0px rgba(2, 37, 62, 0.15);
+  margin-top: 11px;
+  margin-bottom: -1px;
 }
 
 /*# sourceMappingURL=App.css.map */
