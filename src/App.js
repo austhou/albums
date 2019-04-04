@@ -16,7 +16,7 @@ class App extends Component {
     }
     returnRow() {
         return (
-            <div style={{display: 'flex', flexDirection: 'row'}} >
+            <div style={{display: 'flex', flexDirection: 'row', marginLeft: 'auto', marginRight: 'auto', width: 696}} >
                 {this.state.albumX.map(n => {
                     console.log("asdf")
                     return <Album key={Math.random()}/>
@@ -27,7 +27,7 @@ class App extends Component {
     }
     returnGrid() {
         return (
-            <div style={{display: 'flex', flexDirection: 'column'}} >
+            <div style={{display: 'flex', flexDirection: 'column', marginLeft: 'auto', marginRight: 'auto'}} >
                 {this.state.albumY.map(n => {
                     return <div>{this.returnRow()}</div>
                 })}
@@ -36,8 +36,11 @@ class App extends Component {
     }
     render() {
         return (
-            <div className="App">
-                
+            <div className="App" style={{padding: 32}}>
+                <input type="text" className="inputTitle" placeholder="Title"/>
+                <div style={{width: '50%', marginLeft: 'auto', marginRight: 'auto', marginBottom: 32}}>
+                    <input type="text" className="inputName" placeholder="Your name"/>
+                </div>
                 {this.returnGrid()}
             </div>
         );
