@@ -73,10 +73,11 @@ class App extends Component {
                             exact path="/"
                             component={Splash}
                         />
+                        <Route
+                                exact path="/create"
+                                component={Controls}
+                        />
                     </Router>
-                    <div className='controlsOverlay'>
-                        <Controls />
-                    </div>
                 </div>
             </Provider>
         );

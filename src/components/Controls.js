@@ -25,13 +25,15 @@ class Controls extends Component {
             }
         }
         else {
-            return <div />
+            return <div style={{ position: 'relative'}} className="shareButtonDisabled">Fill All 9 Squares</div>
         }
     }
 
     render() {
         return (
-                <div style={{zIndex: 1}}>{this.returnShare()}</div>
+            <div className='controlsOverlay'>
+                <div>{this.returnShare()}</div>
+            </div>
         );
     }
 }

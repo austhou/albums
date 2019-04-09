@@ -21,9 +21,10 @@ class Splash extends Component {
             return <Redirect push to="/create" />;
         }
         return (
-            <div style={{width: '100%', marginTop: '35vh'}}>
+            <div style={{width: '100%', marginTop: '35vh', zIndex: 6, position: 'absolute'}}>
                 <p className="textSplash">Albumlist</p>
-                <div onClick={this.handleOnClick} style={{width: '180px', margin: 'auto', marginTop: 32}} className="shareButton"><p>Make a List</p></div>
+                <p className="textName" style={{marginTop: 4}}>List Ur Albums</p>
+                <div onClick={this.handleOnClick} style={{width: '180px', margin: 'auto', marginTop: 32, zIndex: 6}} className="shareButton"><p>Make a List</p></div>
             </div>
         );
     }
