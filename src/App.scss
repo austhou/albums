@@ -1,7 +1,8 @@
 @import "./styles/variable";
+@import '//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css';
 
 .App {
-    max-width: 45rem;
+    max-width: 55rem;
     margin-left: auto;
     margin-right: auto;
     padding: 32px;
@@ -30,6 +31,10 @@ input:focus {
     outline: none;
 }
 
+.inputBox:focus {
+    border: 1px solid $color-blue;
+}
+
 .submitDisable {
     width: 100%;
     height: 32px;
@@ -46,9 +51,10 @@ input:focus {
 }
 
 .submitAlbum {
-    width: 100%;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     border-radius: 4px;
+    margin-left: 8px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -141,8 +147,10 @@ input:focus {
 .albumHolder {
     width: 200px;
     height: 200px;
+    max-width: 200px;
+    max-height: 200px;
     margin: 16px;
-    background-color: #efefef;
+    background-color: $color-gray;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -150,12 +158,32 @@ input:focus {
     justify-content: center;
 }
 
+.albumHolderBox {
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    position: absolute;
+}
+
+.albumHolderOverlay {
+    width: 200px;
+    height: 200px;
+    margin: 0px;
+    background-color: $color-gray;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: .75;
+}
+
 .albumForm {
     position: absolute;
     padding: 16px;
     height: 'calc(100% - 32px)';
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     
@@ -300,11 +328,22 @@ input:focus {
     .albumHolder {
         width: 300px;
         height: 300px;
+        max-width: 300px;
+        max-height: 300px;
         margin: 16px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 32px;
         z-index: 6;
+    }
+    .albumHolderBox {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .albumHolderOverlay {
+        width: 300px;
+        height: 300px;
     }
     .albumForm {
 
